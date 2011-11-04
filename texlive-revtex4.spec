@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-revtex4
-Version:	20111102
+Version:	20111104
 Release:	1
 Summary:	TeXLive revtex4 package
 Group:		Publishing
@@ -74,6 +74,7 @@ TeXLive revtex4 package.
 %doc %{_texmfdistdir}/source/latex/revtex4/revtex4.dtx
 %doc %{_texmfdistdir}/source/latex/revtex4/revtex4.ins
 %doc %{_texmfdistdir}/source/latex/revtex4/textcase.dtx
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -84,3 +85,5 @@ TeXLive revtex4 package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
