@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-revtex4
 Version:	20111104
-Release:	8
+Release:	9
 Summary:	TeXLive revtex4 package
 Group:		Publishing
 URL:		http://tug.org/texlive
