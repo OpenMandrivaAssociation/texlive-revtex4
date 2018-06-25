@@ -1,5 +1,5 @@
 Name:		texlive-revtex4
-Version:	20171122
+Version:	20180303
 Release:	1
 Summary:	TeXLive revtex4 package
 Group:		Publishing
