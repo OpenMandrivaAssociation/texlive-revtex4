@@ -1,6 +1,6 @@
 Name:		texlive-revtex4
 Version:	56589
-Release:	1
+Release:	2
 Summary:	TeXLive revtex4 package
 Group:		Publishing
 URL:		http://tug.org/texlive
