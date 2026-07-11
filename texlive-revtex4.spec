@@ -1,45 +1,22 @@
-Name:		texlive-revtex4
-Version:	56589
-Release:	2
-Summary:	TeXLive revtex4 package
+%global tl_name revtex4
+%global tl_revision 56589
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	4.0a
+Release:	%{tl_revision}.1
+Summary:	Styles for various Physics Journals (old version)
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/revtex4-0
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/revtex4.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive revtex4 package.
+This is an old version of revtex, and is kept as a courtesy to users
+having difficulty with the incompatibility of that latest version.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-#{_texmfdistdir}/bibtex/bib/revtex4
-%{_texmfdistdir}/bibtex/bst/revtex4
-%{_texmfdistdir}/tex/latex/revtex4
-%doc %{_texmfdistdir}/doc/latex/revtex4
-#- source
-%doc %{_texmfdistdir}/source/latex/revtex4
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar bibtex tex doc source %{buildroot}%{_texmfdistdir}
